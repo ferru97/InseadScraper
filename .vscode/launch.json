@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": ["--file", "users.csv", "--max-articles", "200", "--max-tweets", "120", "--action", "authorTweets"],
+            //"args": ["--file", "users.csv", "--max-articles", "200", "--max-tweet", "120", "--action", "authorArticles"],
+            //"args": ["--file", "users.csv", "--max-articles", "120", "--max-tweet", "120", "--action", "authorInfo"],
+            "justMyCode": true
+        }
+    ]
+}
