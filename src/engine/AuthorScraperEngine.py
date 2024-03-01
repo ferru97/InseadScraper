@@ -44,7 +44,7 @@ def createBaseUserDataframe(userLinks, outputDir):
     df = pd.DataFrame({"LINK": userLinks})
     df["ID"] = df.index + 1
     df["authorInfo_PROCESSED"] = "N"
-    df["uthorArticles_PROCESSED"] = "N"
+    df["authorArticles_PROCESSED"] = "N"
     df["authorTweets_PROCESSED"] = "N"
     df = df[ ['ID'] + [ col for col in df.columns if col != 'ID' ] ]
     df.to_csv(outputDir + "users.csv", index=False)

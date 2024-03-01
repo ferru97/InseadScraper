@@ -106,8 +106,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Insead Scraper')
     parser.add_argument('--file', required=True, help='input journals file name')
-    parser.add_argument('--max-articles', required=True, default=0, help='Maximum number of article to fetch for each author')
-    parser.add_argument('--max-tweets', required=True, default=0, help='Maximum number of tweer to fetch for each author')
+    parser.add_argument('--max-articles', required=False, default=0, help='Maximum number of article to fetch for each author')
+    parser.add_argument('--max-tweets', required=False, default=0, help='Maximum number of tweer to fetch for each author')
     parser.add_argument('--action', required=True, help='authorList: Download author list - authorInfo: Download author info - authorArticles: Download author articles - authorTweet: download author tweer')
     args = parser.parse_args()
 
@@ -122,8 +122,4 @@ if __name__ == "__main__":
         logging.info("Invalid action, it must  be one of the following {ACTIONS_LIST}\n")
 
     driver.close()
-    print("Done :)")
-
-
-# aileen.huang@insead.edu
-#p/w: inseadaileen        
+    print("Done :)")    
