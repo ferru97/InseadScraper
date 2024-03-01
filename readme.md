@@ -1,6 +1,6 @@
 # Install
 ## Create virtual enviroment (only first ime)
-`py -m venv venv to create the virtual environment`
+`py -m venv venv`
 
 ## Activate virtual environment
 `.\venv\Scripts\activate`
