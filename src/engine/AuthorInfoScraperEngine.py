@@ -50,11 +50,10 @@ def _getAuthorDescription(soup):
 def _getAsSeenIn(soup):
     try:
         seeinIn = soup.findAll('div', {'class': 'profile-details-item'})
-        spans = seeinIn.findAll("span")
-        for span in spans:
+        for span in seeinIn:
             text = cleanText(span.getText(separator=TAGS_TEXT_SEPARATOR))
             if "As seen in:" in text:
-                return text
+                return text.replace("As seen in:", "")
         return DEFAULT_VALUE
     except:
         return DEFAULT_VALUE    
@@ -96,7 +95,7 @@ def _getAuthorWebsiteByType(soup, type):
 def _getTwitterFollowers(soup):
     try:
         twitterDiv = soup.find('div', {'class': 'profile-section profile-tweets mr-card'})
-        links = twitterDiv.findAll(a)
+        links = twitterDiv.findAll('a')
         for link in links:
             strongTag = link.findAll('strong')
             if len(strongTag) == 2:
@@ -108,7 +107,7 @@ def _getTwitterFollowers(soup):
 def _getTwitterTweets(soup):
     try:
         twitterDiv = soup.find('div', {'class': 'profile-section profile-tweets mr-card'})
-        links = twitterDiv.findAll(a)
+        links = twitterDiv.findAll('a')
         for link in links:
             strongTag = link.findAll('strong')
             if len(strongTag) == 2:
@@ -119,7 +118,7 @@ def _getTwitterTweets(soup):
     
 def scrapeAuthorsLinksInfo(driver, authorLink, authorId):
     try:
-        soup = navigateAndGetSoupFromDriver(driver, authorLink + "/articles")
+        soup = navigateAndGetSoupFromDriver(driver, authorLink)
 
         profileTab = soup.find("div", {"class" :  re.compile("^profile-section profile-intro")}) 
         profileTab = profileTab.find("div", {"class" :  re.compile("^mr-card-content")}) 

@@ -122,4 +122,4 @@ if __name__ == "__main__":
         logging.info("Invalid action, it must  be one of the following {ACTIONS_LIST}\n")
 
     driver.close()
-    print("Done :)")    
+    print("Done :)")
