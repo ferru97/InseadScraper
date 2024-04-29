@@ -16,7 +16,9 @@ def loadAllTweers(driver, maxTweets):
         while True:
             soup = getSoupFromDriver(driver)
             tweets = soup.findAll("div", {"class": re.compile('^mr-status-tweet')})
-            if lastTweetsSize == len(tweets) or len(tweets)>=maxTweets:
+            if len(tweets)>=maxTweets:
+                return tweets
+            if lastTweetsSize == len(tweets):
                 try:
                     moreButton = driver.find_element(By.XPATH,"//a[text()='Show More']")
                     moreButton.click()

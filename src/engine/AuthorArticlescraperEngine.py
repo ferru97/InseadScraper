@@ -17,7 +17,9 @@ def loadAllArticles(driver, maxArticles):
         while True:
             soup = getSoupFromDriver(driver)
             articles = soup.findAll("div", {"class": "news-story"})
-            if lastArticleSize == len(articles) or len(articles)>=maxArticles:
+            if len(articles)>=maxArticles:
+                return articles
+            if lastArticleSize == len(articles) :
                 try:
                     moreButton = driver.find_element(By.XPATH,"//a[text()='Show More']")
                     moreButton.click()
