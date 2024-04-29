@@ -20,10 +20,10 @@ def getSeleniumInstanceFirefox():
     driver = webdriver.Chrome(service=service, options=chrome_options)
     return driver
 
-def getTestDriver():
+def getTestDriver(chromeVersion):
     options = uc.ChromeOptions() 
     options.headless = False
-    driver = uc.Chrome(use_subprocess=True, options=options, version_main=121) 
+    driver = uc.Chrome(use_subprocess=True, options=options, version_main=chromeVersion) 
     return driver
 
 

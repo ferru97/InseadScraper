@@ -109,9 +109,10 @@ if __name__ == "__main__":
     parser.add_argument('--max-articles', required=False, default=0, help='Maximum number of article to fetch for each author')
     parser.add_argument('--max-tweets', required=False, default=0, help='Maximum number of tweer to fetch for each author')
     parser.add_argument('--action', required=True, help='authorList: Download author list - authorInfo: Download author info - authorArticles: Download author articles - authorTweet: download author tweer')
+    parser.add_argument('--chrome-version', required=True, help='chrome baser version i.e. 127 if the version is 127.x.x.x')
     args = parser.parse_args()
 
-    driver = getTestDriver()
+    driver = getTestDriver(int(args.chrome_version))
     _login(driver)
 
     if args.action == "authorList":
